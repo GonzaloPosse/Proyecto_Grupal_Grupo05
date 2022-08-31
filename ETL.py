@@ -3,7 +3,10 @@ import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine
 # Conexion a la base de datos en RDS
-conexion = create_engine('postgresql://postgres:postgres@database-grupo5.cgmzd7suyc4v.us-east-1.rds.amazonaws.com:5432/postgres')
+clave = str(input('Ingrese la conexion a la base de datos: '))
+conexion = create_engine(clave)
+if conexion.connect():
+    print('Conexion a la base de datos con exito')
 años=list(np.arange(1980,2021))
 años=list(map(str,años))
 
